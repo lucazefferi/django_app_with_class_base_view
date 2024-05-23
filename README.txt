@@ -22,7 +22,7 @@ pip freeze >requirements.txt (fa export di tutte le dipendenze nel file indicato
 docker build -t {inserire il nome voluto della nostra img} .
 docker build -t todo .
 
-docker images - >  You will get a list of all local Docker images with the tags specified
+docker images - >  You will get a list of all local Docker images with the tags specified.
 
 
 3) Lanciare il comando o aprire docker dekstop e lanciare eseguire l'img da li
