@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task List</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+    <div class="container-fluid">
+        <h2 class="">Task Form</h2>
+        <!--
+            L’attributo action del form è impostato su una stringa vuota (action=""). Questo significa che quando il form viene inviato, la richiesta POST viene inviata alla stessa URL della pagina corrente.
+            In altre parole, se la tua pagina si trova all’URL http://miosito.com/login/, e l’utente invia il form, la richiesta POST viene inviata a http://miosito.com/login/.
+            Questo è comune in Django, perché le viste in Django sono spesso progettate per gestire sia le richieste GET (per visualizzare il form) che le richieste POST (per elaborare i dati del form). Quindi, non c’è bisogno di specificare un URL action diverso - il 
+            form può semplicemente essere inviato alla stessa URL della pagina corrente.
+            PER CAPIRE MEGLIO COME VENGONO GESTIRE LE RICHIESTE GET E POST VEDERE I COMMENTO CERCANDO IDCOMMENTO1 E IDCOMMETNO2 NELLA VIEWS.PY
+        -->
+        <form action="" method="post">
+            {% csrf_token %}
+            <!--as_p serve per mettere i campi del form uno sotto l'altro-->
+            {{form.as_p}}
+            <input type="submit" name="submit"/>
+        </form>
+        {%if task != null%}
+        <a href="{% url 'todo:task_detail' task.id %}">Go back</a> | 
+        {%endif%}
+        <a href="{% url 'todo:task_list' %}">All tasks</a> 
+    </div>
+</body>
+</html>

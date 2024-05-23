@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task List</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+    <div class="container-fluid">
+        <h2 class="">Task Delete</h2>
+        <p>Are you sure to delete <b>{{task.title}}</b> ?</p>
+        <form action="" method="post">
+            {% csrf_token %}
+            <!--as_p serve per mettere i campi del form uno sotto l'altro-->
+            {{form.as_p}}
+            <input type="submit" name="submit" value="Delete"/>
+        </form>
+        {%if task != null%}
+        <a href="{% url 'todo:task_detail' task.id %}">Go back</a> | 
+        {%endif%}
+        <a href="{% url 'todo:task_list' %}">All tasks</a> 
+    </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+# Utilizza un'immagine Docker con Python 3.8
+FROM python:3.8
+
+# Imposta la directory di lavoro nel container
+WORKDIR /app
+
+# Copia requirements.txt nella directory corrente del container
+COPY requirements.txt .
+
+# Installa i pacchetti richiesti
+RUN pip install -r requirements.txt
+
+# Copia il resto del codice sorgente del progetto nella directory di lavoro
+COPY . .
+
+# Espone la porta su cui il tuo progetto sarà visibile
+EXPOSE 8000
+
+# Esegue il server di sviluppo Django quando il container viene avviato
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

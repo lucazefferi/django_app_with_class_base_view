@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Detail</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+<div class="container-fluid">
+    <h2>Task Detail</h2>
+    <ul>
+        <li>
+            <h3>{{ task.title }}</h3>
+            <h4>{{ task.description }}</h4>
+        </li>
+        <a href="{% url 'todo:task_update' task.id %}">Update task</a> | 
+        <a href="{% url 'todo:task_delete' task.id %}">Delete task</a> | 
+        <!--"todo" è il nome dell'app si trova nel file apps.py-->
+        <a href="{% url 'todo:task_list' %}">All tasks</a> 
+    </ul>
+</div>
+</body>
+</html>

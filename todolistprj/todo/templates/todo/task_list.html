@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task List</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+
+
+<div class="container-fluid">
+
+    {% if request.user.is_authenticated %}
+        <p>{{ request.user}}</p>
+        <a href="{%url 'todo:logout' %}">Logout</a>
+    {% else %}
+        <a href="{%url 'todo:login' %}">Login</a>
+    {% endif %}
+    <hr>
+
+    <h2 class="">Task List</h2>
+    <!--
+        qui vado a usare get per appendere il valore della input nel url e autamticamente ricaricare la pagina, 
+        nella views in TaskList mi prendo il valore e filtro i vari task da mostrare
+    -->
+    <form action="" method="get">
+        <input type="text" name="search-task" value="{{search_input}}"/>
+        <input type="submit"/>
+    </form>
+    <div class="div">
+        <a href="{% url 'todo:task_create' %}">Create task</a> 
+    </div>
+    <ul>
+         <!--Nei template DJANGO si usa un linguaggio chiamato Django Template Language (DTL). 
+            Questo linguaggio di templating è progettato per essere facile da usare e sicuro, 
+            e include tag e filtri che ti permettono di manipolare i dati nel tuo template. -->
+        <!-- <h3>{{tasks|length}}</h3> -->
+        {% for task in tasks %}
+        <li>
+            <h3>{{ task.title }}</h3>
+            <a href="{% url 'todo:task_detail' task.id %}">Task detail</a>
+        </li>
+        {% empty %}
+        <li>No tasks available.</li>
+        {% endfor %} 
+        
+    </ul>
+</div>
+</body>
+</html>
