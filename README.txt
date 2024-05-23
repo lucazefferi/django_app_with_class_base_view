@@ -4,7 +4,7 @@ e lanciare "python manage.py runserver"
 quando si crea un nuovo modello per creare la tab bisogna lanciare il comanda "python manage.py makemigration" 
 e poi "python manage.py migration"
 
-Come creare un virtual environment, cosa utile per gestire il nostro progetto e "pacchettizarlo"
+Come creare un virtual environment, cosa utile per gestire il nostro progetto e non dover scaricare le dipendenze in locale
 https://aulab.it/guide-avanzate/come-creare-un-virtual-environment-in-python
 
 Se invece vogio far partire la mia app su docker devo:
