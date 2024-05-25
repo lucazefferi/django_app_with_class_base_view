@@ -1,5 +1,5 @@
 # Utilizza un'immagine Docker con Python 3.8
-FROM python:3.8
+FROM python:3.13.0b1-slim
 
 # Imposta la directory di lavoro nel container
 WORKDIR /app
