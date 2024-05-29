@@ -27,6 +27,9 @@ docker images - >  You will get a list of all local Docker images with the tags 
 
 3) Lanciare il comando o aprire docker dekstop e lanciare eseguire l'img da li
 
+ "-p 8080:5000: Publish container's port 5000 to the host machine's port 8080." -> QUINDI DAL MIO 8080 POSSO ACCEDERE ALLA   
+ PORTA EXPOSE DEL CONTAINER
+
  docker run -d --restart=always -p 8080:{indicare il numero che abbiamo scritto in expose nel dockerfile} todo:tag_name 
 
 If you didn't specify tag_name it will automatically run an image with the 'latest' tag.
